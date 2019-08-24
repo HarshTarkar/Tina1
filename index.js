@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const http = require('http');
 const port = process.env.PORT || 3000;
+http.createServer().listen(port);
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
