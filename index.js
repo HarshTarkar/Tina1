@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
+const http = require('http');
+const port = process.env.PORT || 3000;
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+const token = process.env.TOKEN;
 
 var user="";
 var badwords = ["bitch","fuck","fucking","shit","weeb"]
@@ -90,6 +93,9 @@ client.on('message', message => {
 		
 	}
 
+});
+client.on('error',err => {
+	console.log(err);
 });
 
 client.login(token);
